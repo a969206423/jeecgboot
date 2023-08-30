@@ -131,9 +131,9 @@ spring:
         connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
       datasource:
         master:
-          url: jdbc:mysql://127.0.0.1:3306/jeecg-boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://localhost:3306/jeecg-boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
           username: root
-          password: root
+          password: a969206423
           driver-class-name: com.mysql.cj.jdbc.Driver
           # 多数据源配置
           #multi-datasource1:
@@ -145,6 +145,13 @@ spring:
   redis:
     database: 0
     host: 127.0.0.1
+    lettuce:
+      pool:
+        max-active: 8 #最大数据库连接数，设为0没有限制
+        max-idle: 8 #最大等待连接数，设为0没有限制
+        max-wait: -1ms #最大建立链接等待时间，如果超过此时间将街道异常，设为-1没有限制
+        min-idle: 0 #最小等待链接数，设为0没有限制
+      shutdown-timeout: 100ms
     port: 6379
     password: ''
 #mybatis plus 设置
